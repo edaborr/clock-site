@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⏱️ Zaman İstasyonu
 
-## Getting Started
+Uzay temalı, koyu arayüzlü bir zaman araçları uygulaması. Next.js ile geliştirildi; saat, kronometre, geri sayım sayacı ve dünya saatlerini tek bir sayfada bir araya getirir.
 
-First, run the development server:
+
+## ✨ Özellikler
+
+- **🕐 Saat** — Canlı saat ve tarih gösterimi
+- **⏱️ Kronometre** — Başlat/durdur, tur (lap) alma, en hızlı/en yavaş turun vurgulanması
+- **⏳ Sayaç** — Geri sayım, hazır süre şablonları, özel süre girişi, **Pomodoro modu** (25dk çalışma / 5dk mola)
+- **🌍 Dünya Saatleri** — İstanbul, Londra, New York, Tokyo ve Sidney saatlerini eş zamanlı gösterir
+- **🌌 Uzay temalı arka plan** — Mouse hareketine tepki veren parallax yıldız alanı ve ara sıra beliren kayan yıldızlar
+- **🔔 Bildirimler** — Sayaç bitince ses efekti ve tarayıcı bildirimi
+- **⌨️ Klavye kısayolları** — `Boşluk`: başlat/durdur · `L`: tur al · `R`: sıfırla
+- **💾 Hafıza** — Son kullanılan sayaç süresi tarayıcıda hatırlanır
+- **🔗 Paylaşılabilir link** — `?minutes=15` gibi bir URL parametresiyle belirli bir süreyle sayfa açılabilir
+- **🎬 Akıcı geçişler** — Kartlar ve sekmeler arasında Framer Motion ile animasyonlu geçiş
+
+## 🛠️ Kullanılan Teknolojiler
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- HTML5 Canvas (arka plan animasyonu)
+- Web Audio API & Notification API
+
+## 🚀 Kurulum
 
 ```bash
+# Depoyu klonla
+git clone https://github.com/edaborr/clock-site.git
+cd clock-site
+
+# Bağımlılıkları kur
+npm install
+
+# Geliştirme sunucusunu başlat
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda [http://localhost:3000](http://localhost:3000) adresini aç.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Proje Yapısı
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+clock/
+├─ app/
+│   ├─ page.tsx          # Ana sayfa
+│   ├─ layout.tsx        # Kök layout
+│   └─ globals.css       # Global stiller
+├─ components/
+│   ├─ CardSwitcher.tsx      # Sekme ve kart geçiş yönetimi
+│   ├─ ClockCard.tsx         # Saat kartı
+│   ├─ StopwatchCard.tsx     # Kronometre kartı
+│   ├─ TimerCard.tsx         # Sayaç / Pomodoro kartı
+│   ├─ WorldClockCard.tsx    # Dünya saatleri kartı
+│   └─ SpaceBackground.tsx   # Canvas tabanlı arka plan animasyonu
+└─ hooks/
+    ├─ useClock.ts       # Saat state yönetimi
+    ├─ useStopwatch.ts   # Kronometre mantığı
+    ├─ useTimer.ts       # Geri sayım mantığı
+    └─ useSound.ts       # Ses ve bildirim yardımcıları
+```
 
-## Learn More
+## 🎨 Tasarım
 
-To learn more about Next.js, take a look at the following resources:
+Koyu lacivert/uzay paleti (`#05060f` → `#101534`), yumuşak mavi-mor ve turuncu vurgu renkleri, glassmorphism (buzlu cam) kart stili.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Lisans
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Bu proje kişisel/eğitim amaçlı geliştirilmiştir.
